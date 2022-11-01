@@ -1,7 +1,6 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:democlase3/pages/principal.dart';
-import 'package:democlase3/pages/new_msg.dart';
-import 'package:democlase3/services/loginService.dart';
+import 'package:democlase3/services/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

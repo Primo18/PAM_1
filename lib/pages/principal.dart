@@ -11,7 +11,7 @@ class Principal extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Súper Mensajes"),
         ),
-        drawer: NavigationDrawer(),
+        drawer: const NavigationDrawer(),
         body: const Center(
           child: Text("Login Success"),
         ));
@@ -19,7 +19,7 @@ class Principal extends StatelessWidget {
 }
 
 class NavigationDrawer extends StatelessWidget {
-  NavigationDrawer({Key? key}) : super(key: key);
+  const NavigationDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Drawer(

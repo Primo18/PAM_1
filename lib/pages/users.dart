@@ -10,7 +10,7 @@ class Integrantes extends StatelessWidget {
         title: const Text('Integrantes'),
         backgroundColor: Colors.green,
       ),
-      body: Center(
+      body: const Center(
         child:
             Text("Javier Leiva y Daniel Lopez", style: TextStyle(fontSize: 30)),
       ),
