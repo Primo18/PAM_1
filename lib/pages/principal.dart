@@ -9,7 +9,7 @@ class Principal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Súper Mensajes"),
+          title: const Text("Súper  Mensajes"),
         ),
         drawer: const NavigationDrawer(),
         body: const Center(
