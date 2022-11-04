@@ -4,6 +4,8 @@ import 'package:democlase3/services/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+final TextEditingController emailController = TextEditingController();
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -12,7 +14,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController emailController = TextEditingController();
+  //final TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   Future<void> validarDatos(String email, String password) async {
@@ -73,7 +75,6 @@ class _LoginState extends State<Login> {
                       labelText: "Contraseña",
                       suffixIcon: const Icon(Icons.remove_red_eye))),
               sizedBox,
-              sizedBox,
               SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -96,19 +97,7 @@ class _LoginState extends State<Login> {
                               emailController.text, passwordController.text);
                         }
                       },
-                      child: const Text("Ingresar"))),
-              sizedBox,
-              GestureDetector(
-                  onLongPress: () {
-                    print("Longpress");
-                  },
-                  onTap: () {
-                    print("hola");
-                  },
-                  child: const Text(
-                    "¿Olvidó su contraseña?",
-                    style: TextStyle(color: Colors.green),
-                  ))
+                      child: const Text("Ingresar")))
             ],
           ),
         ),

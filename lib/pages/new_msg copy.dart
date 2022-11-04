@@ -1,24 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:democlase3/dto/mensajesDTO.dart';
 import 'package:http/http.dart' as http;
-import 'package:democlase3/pages/principal.dart';
-import 'package:democlase3/pages/login.dart';
-import 'dart:convert';
-
-Future<http.Response> crearMensaje(
-    String login, String titulo, String texto) async {
-  return await http.post(
-    Uri.parse('https://fcfab46d0f16.sa.ngrok.io/api/mensajes'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode(<String, String>{
-      'login': login,
-      'titulo': titulo,
-      'texto': texto,
-    }),
-  );
-}
 
 class NewMsg extends StatelessWidget {
   const NewMsg({super.key});
@@ -54,9 +35,6 @@ class MyCustomForm extends StatefulWidget {
 // Create a corresponding State class.
 // This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
-  TextEditingController titulo = TextEditingController();
-  TextEditingController texto = TextEditingController();
-  Future<http.Response>? _futureMensaje;
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   //
@@ -73,7 +51,6 @@ class MyCustomFormState extends State<MyCustomForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
-            controller: titulo,
             decoration: const InputDecoration(
                 hintText: "Título", border: OutlineInputBorder()),
             validator: (value) {
@@ -85,7 +62,6 @@ class MyCustomFormState extends State<MyCustomForm> {
           ),
           const SizedBox(height: 16),
           TextFormField(
-            controller: texto,
             keyboardType: TextInputType.multiline,
             maxLines: null,
             decoration: const InputDecoration(
@@ -109,12 +85,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')),
                   );
-                  setState(() {
-                    _futureMensaje = crearMensaje(
-                        emailController.text, titulo.text, texto.text);
-                  });
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Principal()));
                 }
               },
               child: const Text('Submit'),
